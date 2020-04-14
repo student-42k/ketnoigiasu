@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="vi">	
 	<head>
@@ -17,6 +18,11 @@
 			</div> 
 						
 			<div class="content">
+				
+				<?php 
+				
+				if (isset($_SESSION['username']) && $_SESSION['username'])
+				{ echo '
 				
 				<h1>Đăng kí liền tay, gia sư bay tới ngay !</h1>
 				
@@ -101,16 +107,22 @@
 							<td> <input type="checkbox" name="chon21" value="toiCN"> </td>
 						</tr>
 					</table>
+
 					<input type="submit" name="submit" value="Xác nhận " />
 					
 				</form>
-					
+					'; } else {echo "<div class='form'><h3>Bạn cần phải đăng nhập </h3><br /> Click để <a href='login.php'>đăng nhập</a></div>";
+						
+					}
+					?>
 	
 					<?php
 					
 					require 'db.php'; 
 					
-						if(isset($_POST["submit"])){
+						if(isset($_POST["submit1"])
+					      )
+						{
 							
 						
 						$phuhuynhname=$_POST["phuhuynhname"];
@@ -207,6 +219,17 @@
 						{
 							$phuhuynhtime=$phuhuynhtime.$_POST["chon21"]."-";
 						}
+						
+						
+						//Kiểm tra đã nhập đủ thong tin chua 
+					    if (!$phuhuynhname || !$phuhuynhsex || !$phuhuynhphone || !$phuhuynhkhuvuc 
+					    	|| !$phuhuynhlop || !$phuhuynhmon || !$phuhuynhtime ) 
+					    {
+					        echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
+					        exit;
+					    }
+						
+						
 						
 				
 				$query="INSERT INTO lopday (phuhuynhname,phuhuynhphone,

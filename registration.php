@@ -29,16 +29,13 @@
 					$password = mysqli_real_escape_string($con,$password);
 					$trn_date = date("Y-m-d H:i:s");
 					
-					$query = "INSERT into users (username, 
-													password, 
-													email, 
-													trn_date)
-											 VALUES ('$username', 
-											 		'".md5($password)."', 
-											 		'$email', 
-											 		'$trn_date')";
+					$quyen = stripslashes($_REQUEST['quyen']);
+					
+					$query = "INSERT INTO users (username,email,password,trn_date,quyen) VALUES ('$username', '$email', '".md5($password)."', '$trn_date', '$quyen')";
 						$result = mysqli_query($con,$query);
-						if($result){
+						
+						if($result)
+						{
 							echo "<div class='form'><h3>Bạn đã đăng ký thành công</h3><br/>Click để <a href='login.php'>Đăng nhập</a></div>";
 						}
 					}else{
@@ -49,6 +46,9 @@
 						<input type="text" name="username" placeholder="Nhập tên đăng nhập" required/> <br />
 						<input type="password" name="password" placeholder="Nhập mật khẩu" required/> <br />
 						<input type="email" name="email" placeholder="Nhập email" required/> <br />
+						 Bạn là : <select name='quyen' >
+										<option>gia sư tìm lớp</option>
+										<option>phụ huynh tìm gia sư</option>
 						<input type="submit" name="submit" value="Xác nhận đăng ký" />
 					</form>
 				</div>
