@@ -88,6 +88,7 @@ body{
 	text-align:center;
 	font-family:Tahoma;
 	line-height:23px;
+	float: none;
 	border-bottom: 2px solid #ffffff;
 }
 
@@ -105,6 +106,9 @@ body{
 .content {
 	background-color: #E9DC64;
 	width:900px;	
+	font-size: 20px;
+	font-family: tahoma;
+
 }
 .form {
 	width:300px;
@@ -122,8 +126,19 @@ body{
 
 .lopchuagiao {
 	background-color: #F1A080;
-	width: 80px;
+	width: 500px;
 	border: 1px solid;
-	float: left;
-	margin-right: 5px;
+
+	padding: 10px 10px 10px;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+.lopchuagiao a {
+	color: #210B61;
+	font-size : 25px;
+}
+
+.lopchuagiao a:hover {
+	color: #fff;
+	font-size : 25px;
 }

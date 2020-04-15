@@ -18,19 +18,11 @@
 			</div> 
 			
 			<div class="content">
-				<h1>Các lớp chưa có gia sư</h1>
+				<h1>Gia sư hiện có</h1>
 				<?php
 					require 'db.php';
 					
-					$query="SELECT	idlopday,
-									phuhuynhkhuvuc, 
-									phuhuynhlop,
-									phuhuynhmon,
-									phuhuynhtime,
-									time_submit 
-							FROM 	lopday 
-							WHERE	 tinhtrang = 0 
-							ORDER BY time_submit DESC";
+					$query="SELECT idgiasu, giasuname, giasusex, giasukhuvuc, giasulop, giasumon FROM giasu";
 								
 					$result = mysqli_query($con,$query) or die(mysql_error());
 					
@@ -39,13 +31,15 @@
 					{ ?>
 						
 						<div class="lopchuagiao">
-							Mã lớp 	:   <?php echo $rows ["idlopday"]; ?> <br />
-							 Khu vực:	<?php echo $rows ["phuhuynhkhuvuc"]; ?> <br />
-								Lớp :	<?php echo $rows ["phuhuynhlop"]; 	?> <br />
-								Môn :	<?php echo $rows ["phuhuynhmon"]; 	?> <br />
-					  Thời gian dạy :   <?php echo $rows ["phuhuynhtime"]; 	?> <br /> 
-					 <br /> <hr /> <br />
-						<a href="detail.php?detail=<?php echo $rows ["idlopday"];?>"> Bấm xem chi tiết</a>
+						MS gia sư 	:   <?php echo $rows ["idgiasu"]; ?> <br />	
+						 Tên gia sư	:	<?php echo $rows ["giasuname"]; ?> <br />
+						 Giới tính 	:   <?php echo $rows ["giasusex"]; ?> <br />
+							 Khu vực:	<?php echo $rows ["giasukhuvuc"]; ?> <br />
+								Lớp :	<?php echo $rows ["giasulop"]; 	?> <br />
+								Môn :	<?php echo $rows ["giasumon"]; 	?> <br />
+								
+							<br />	<hr /> <br />
+								<a href="detail1.php?detail1=<?php echo $rows ["idgiasu"];?>"> Bấm xem chi tiết</a>
 						</div>
 					<?php
 					 }

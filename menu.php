@@ -4,7 +4,7 @@
 					<li><a href="#">Gia sư</a>
 						<ul>
 							<li><a href="giasudangky.php">Đăng kí nhận lớp </a></li>
-							<li><a href="#">Lớp chưa có gia sư</a></li>
+							<li><a href="hienthilopchuagiao.php">Lớp chưa có gia sư</a></li>
 							<li><a href="#">Trao đổi suất dạy</a></li>
 							<li><a href="#">Lưu ý cho gia sư !</a></li>
 						</ul>
@@ -12,7 +12,7 @@
 					<li><a href="#">Phụ huynh</a>
 						<ul>
 							<li><a href="phuhuynhdangky.php">Đăng kí tìm gia sư</a></li>
-							<li><a href="#">Gia sư hiện có</a></li>
+							<li><a href="giasuhienco.php">Gia sư hiện có</a></li>
 							<li><a href="#">Lưu ý cho phụ huynh</a></li>
 						</ul>
 					</li>
