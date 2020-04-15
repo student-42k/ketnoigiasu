@@ -119,3 +119,11 @@ body{
 	margin-top: 10px;
 }
 .form form input[type='submit']:hover {background-color:#BDBDBD;}
+
+.lopchuagiao {
+	background-color: #F1A080;
+	width: 80px;
+	border: 1px solid;
+	float: left;
+	margin-right: 5px;
+}
