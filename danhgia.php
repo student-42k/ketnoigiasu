@@ -17,37 +17,30 @@
 				<?php include 'menu.php';	?>
 			</div> 
 			
+			
 			<div class="content">
-				
-				<h1>Gia sư hiện có</h1>
 				<?php
 					require 'db.php';
-					
+		
 					$query="SELECT * FROM giasu";
 								
 					$result = mysqli_query($con,$query) or die(mysql_error());
 					
-					
 					while ($rows = mysqli_fetch_array($result)) 
 					{ ?>
-						
-						<div class="lopchuagiao">							
-						<img src="images/<?php echo $rows["giasuanh"]; ?>" width="100" height="120" /> <br />	
-						<p>		
-						MS gia sư 	:   <?php echo $rows ["idgiasu"]; ?> <br />	
-						 Tên gia sư	:	<?php echo $rows ["giasuname"]; ?> <br />
-						 Giới tính 	:   <?php echo $rows ["giasusex"]; ?> <br />
-							 Khu vực:	<?php echo $rows ["giasukhuvuc"]; ?> <br />
-								Lớp :	<?php echo $rows ["giasulop"]; 	?> <br />
-								Môn :	<?php echo $rows ["giasumon"]; 	?> <br />
-						</p>	
-							<br />	<hr /> <br />
-								<a href="detail1.php?detail1=<?php echo $rows ["idgiasu"];?>"> Bấm xem chi tiết</a>
+						<div class="lopchuagiao">
+							<img src="images/<?php echo $rows ['giasuanh']; ?>" width="100" height="120"  /> <br />			
+							Mã gia sư : <?php echo $rows ["idgiasu"]; ?> <br />
+							Tên gia sư : <?php echo $rows ["giasuname"]; ?> <br />
+							<a href="xemnhanxet.php?nhanxet=<?php echo $rows ["idgiasu"];?>"> Bấm xem nhận xét của gia sư này </a>
 						</div>
-					<?php
-					 }
+					
+					
+					<?php }
 					
 					?>
+			  
+			  	
 					
 			</div>
 			

@@ -23,8 +23,23 @@
 			
 			<div class="content">
 				
+				<h1> Gia sư 5 sao</h1>
+					<div class="giasu5sao">
+					<?php
+					 include 'giasu5sao1.php';
+					?> </div>
+
+
+				<h1> Gia sư tiêu biểu</h1>
+				<div class="giasu5sao">
+					<?php
+				 include 'giasunhieulop1.php';
+				?>  </div>
+	
+				
 			</div>
 			
+
 			
 			<div class="footer"> 
 				<?php include 'footer.php'; ?>

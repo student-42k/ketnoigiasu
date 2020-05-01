@@ -17,23 +17,28 @@
 				<?php include 'menu.php';	?>
 			</div> 
 			
+			
 			<div class="content">
-				<h1>Lớp của bạn </h1>
-				
 				<?php
 					require 'db.php';
+		
+					$query2="SELECT*FROM danhgia Join giasu ON danhgia.idgiasu_danhgia = giasu.idgiasu WHERE idgiasu=".$_GET["nhanxet"];
+					$result2 = mysqli_query($con,$query2) or die(mysql_error());
+					while ($rows2 = mysqli_fetch_array($result2)) 
+					{ ?>
+						<div class="lopchuagiao">
+							Nhận xét : <?php echo $rows2 ["nhanxet"]; ?> <br />
+							Đánh giá: <?php echo $rows2 ["sao"]; ?> sao <br />
+							<hr /> <br />
+						</div>
+						
 					
-					$query= "SELECT idlopday,phuhuynhname,phuhuynhphone, 
-					phuhuynhkhuvuc,phuhuynhlop,phuhuynhmon,phuhuynhtime, 
-					phuhuynhsex, tinhtrang 
-					FROM lopday join lopcuagiasu
-					ON lopday.idlopday = lopcuagiasu.idlopday 
-					WHERE tinhtrang = 1  ".$_GET["detail"];
-				?>
-	
-				<div class="lopchuagiao">
 					
-				</div>
+					<?php } 
+						
+					
+					?><div class="lopchuagiao"><a href="index.php" > Quay lại</a>	</div>
+			  
 			</div>
 			
 			

@@ -1,5 +1,7 @@
+<!--Form gia sư đăng kí-->
+
 <h1>Đăng kí ngay, nhận lớp liền tay !</h1>
-				<form action='' method='post' name='dangkinhanlopday'></br/>
+				<form action='' method='post' name='dangkinhanlopday' enctype="multipart/form-data" ></br/>
 						  Họ tên : <input type='text' name='giasuname' /> <br />
 					Giới tính : 
 					  <input type='radio' name='gender' value='nam' checked='checked'> Nam 
@@ -33,6 +35,7 @@
 						  		<br />					
 
 					Số điện thoại liên lạc : <input type='text' name='sdt' /> <br />
+					Ảnh thẻ : <input type="file" name="image" />
 					Hiện đang là : <select name='hiendangla' >
 										<option>Sinh viên còn đi học</option>
 										<option>Sinh viên đã ra trường</option>

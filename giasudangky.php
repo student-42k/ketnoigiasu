@@ -20,30 +20,50 @@
 			<div class="content">
 				
 				<?php 
-				
-				if (isset($_SESSION['username']) )
+				require 'db.php'; 		
+						
+					
+				///kiểm tra đã đăng nhập chưa			
+				if (isset($_SESSION['username']))
 				{
-					include 'giasudangky1.php' ;
+					//kiểm tra quyền 
+					if($_SESSION["quyen"]==="gia sư tìm lớp") 
+					{
+						$cl_truyvan="SELECT*FROM giasu WHERE idgiasu=".$_SESSION["id"];
+						$result1 = mysqli_query($con,$cl_truyvan) or die(mysql_error());
+					
+						$rows = mysqli_num_rows($result1);
+						//kiểm tra đã đăng kí chưa
+						if($rows==1)
+						{
+							echo "Bạn đã đăng kí rồi <br /><a href='index.php'>Quay lại trang chủ</a> ";
+						}else {include 'giasudangky1.php';}
+						
+					}
+					
+					else {echo"Bạn không phải là gia sư tìm lớp nên không được đăng kí <br /><a href='index.php'>Quay lại trang chủ</a> ";
+						
+					}
 				}
 				else 
 				{
-					echo "<div class='form'><h3>Bạn cần phải đăng nhập </h3><br /> Click để <a href='login.php'>đăng nhập</a></div>";
-						
-					}
+					echo "<div class='form'><h3>Bạn cần phải đăng nhập </h3><br /> Click để <a href='login.php'>đăng nhập</a></div>";		
+				}
 
-					
-					require 'db.php'; 
-					
-						if(isset($_POST["submit"]))
-						{
+				//nhập dữ liệu lần đầu
+				if(isset($_POST["submit"]))
+				{
 							
-						
+						$idgiasu=$_SESSION['id'];
 						$giasuname=$_POST["giasuname"];
 						$giasusex=$_POST["gender"];
 						$giasungay=$_POST["ngay"];
 						$giasuthang=$_POST["thang"];
 						$giasunam=$_POST["nam"];
 						$giasuphone=$_POST["sdt"];
+						 
+						
+						
 						$giasunghe=$_POST["hiendangla"];
 						$giasukhuvuc=$_POST["daytai"];
 						$giasulop=$_POST["daylop"];
@@ -137,6 +157,10 @@
 							$giasutime=$giasutime.$_POST["chon21"]."-";
 						}
 						
+
+						$image = $_FILES['image']['name'];
+						$target = "images/".basename($image);
+						move_uploaded_file($_FILES['image']['tmp_name'], $target);
 						
 						//Kiểm tra đã nhập đủ thong tin chua 
 					    if (!$giasuname || !$giasusex || !$giasungay || !$giasuthang || !$giasunam 
@@ -145,11 +169,14 @@
 					        echo "Vui lòng nhập đầy đủ thông tin. <a href='javascript: history.go(-1)'>Trở lại</a>";
 					        exit;
 					    }
+						
+						
+					
 				
-					$query="INSERT INTO giasu (giasuname,giasusex,giasuphone,giasunghe,
-					giasukhuvuc,giasulop,giasumon,giasutime,ngaysinh,thangsinh,namsinh) VALUES ('$giasuname', '$giasusex', 
+					$query="INSERT INTO giasu (idgiasu,giasuname,giasusex,giasuphone,giasunghe,
+					giasukhuvuc,giasulop,giasumon,giasutime,ngaysinh,thangsinh,namsinh,giasuanh) VALUES ('$idgiasu','$giasuname', '$giasusex', 
 					'$giasuphone', '$giasunghe', '$giasukhuvuc', '$giasulop', '$giasumon', 
-					'$giasutime', '$giasungay', '$giasuthang', '$giasunam')";
+					'$giasutime', '$giasungay', '$giasuthang', '$giasunam','$image')";
 					
 				$result = mysqli_query($con,$query);	
 					
@@ -159,9 +186,10 @@
 										<br/>Click để <a href='index.php'>quay lại trang chủ</a>
 										</div>";
 					} 
-				
+					
+					
 				}
-					?>
+			?>
 				
 			</div>
 			

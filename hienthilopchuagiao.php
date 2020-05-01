@@ -18,6 +18,7 @@
 			</div> 
 			
 			<div class="content">
+				
 				<h1>Các lớp chưa có gia sư</h1>
 				<?php
 					require 'db.php';

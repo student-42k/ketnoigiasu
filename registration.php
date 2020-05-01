@@ -47,8 +47,8 @@
 						<input type="password" name="password" placeholder="Nhập mật khẩu" required/> <br />
 						<input type="email" name="email" placeholder="Nhập email" required/> <br />
 						 Bạn là : <select name='quyen' >
-										<option>gia sư tìm lớp</option>
-										<option>phụ huynh tìm gia sư</option>
+										<option >gia sư tìm lớp</option>
+										<option >phụ huynh tìm gia sư</option>
 						<input type="submit" name="submit" value="Xác nhận đăng ký" />
 					</form>
 				</div>

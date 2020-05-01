@@ -20,10 +20,19 @@
 			<div class="content">
 				
 				<?php 
+				require 'db.php'; 
 				
 				if (isset($_SESSION['username']))
 				{
-					 include 'phuhuynhdangky1.php'; 
+						$cl_truyvan="SELECT*FROM lopday WHERE idtaikhoan=".$_SESSION["id"];
+						
+						$result1 = mysqli_query($con,$cl_truyvan) or die(mysql_error());
+					
+						$rows = mysqli_num_rows($result1);
+						//kiểm tra đã đăng kí bao nhiêu lớp
+						echo "Bạn đã đăng kí ".$rows." lớp";
+					
+					 	include 'phuhuynhdangky1.php'; 
 				} 
 				else 
 				{
@@ -31,14 +40,13 @@
 						
 				}
 				
-				
-					require 'db.php'; 
+
 					
 						if(isset($_POST["submit"])
 					      )
 						{
 							
-						
+						$idtaikhoan=$_SESSION['id'];
 						$phuhuynhname=$_POST["phuhuynhname"];
 						$phuhuynhphone=$_POST["phuhuynhphone"];
 						$phuhuynhsex=$_POST["gender"];
@@ -132,6 +140,7 @@
 						{
 							$phuhuynhtime=$phuhuynhtime.$_POST["chon21"]."-";
 						}
+						$trn_date = date("Y-m-d H:i:s");
 						
 						
 						//Kiểm tra đã nhập đủ thong tin chua 
@@ -144,9 +153,9 @@
 						
 				
 				$query="INSERT INTO lopday (phuhuynhname,phuhuynhphone, 
-				phuhuynhkhuvuc,phuhuynhlop,phuhuynhmon,phuhuynhtime,phuhuynhsex,tinhtrang) 
+				phuhuynhkhuvuc,phuhuynhlop,phuhuynhmon,phuhuynhtime,phuhuynhsex,tinhtrang,idtaikhoan,time_submit) 
 				VALUES ('$phuhuynhname', '$phuhuynhphone', '$phuhuynhkhuvuc', '$phuhuynhlop',
-				 '$phuhuynhmon', '$phuhuynhtime', '$phuhuynhsex', '0')";
+				 '$phuhuynhmon', '$phuhuynhtime', '$phuhuynhsex', '0','$idtaikhoan','$trn_date')";
 				   
 				
 				$result = mysqli_query($con,$query);	

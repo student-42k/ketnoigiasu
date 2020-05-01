@@ -26,12 +26,20 @@
 					$username = mysqli_real_escape_string($con,$username);
 					$password = stripslashes($_REQUEST['password']);
 					$password = mysqli_real_escape_string($con,$password);
-						$query = "SELECT * FROM users WHERE username='$username' and password='".md5($password)."'";
+					
+					$query = "SELECT * FROM users WHERE username='$username' and password='".md5($password)."'";
 					$result = mysqli_query($con,$query) or die(mysql_error());
+					
 					$rows = mysqli_num_rows($result);
-						if($rows==1){
-					  $_SESSION['username'] = $username;
-					  header("Location: index.php");
+					$row2 = mysqli_fetch_array($result);
+					
+						if($rows==1)
+						{
+							$_SESSION['username'] = $username;
+					  		$_SESSION["id"]=$row2["id"];
+					  		$_SESSION["quyen"]=$row2["quyen"];
+
+					  		header("Location: index.php");
 							}else{
 						echo "<div class='form'><h3>Tên đăng nhập hoặc mật khẩu không đúng!</h3></br><a href='login.php'>Đăng nhập lại</a></div>";
 						}

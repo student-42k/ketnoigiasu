@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="vi">	
 	<head>
@@ -22,8 +22,7 @@
 				<?php
 					require 'db.php';
 		
-					$query="SELECT idgiasu, giasuname, giasusex, giasuphone ,giasunghe,
-					 giasukhuvuc, giasulop, giasumon,ngaysinh, thangsinh, namsinh FROM giasu Where idgiasu = ".$_GET["detail1"];				
+					$query="SELECT * FROM giasu Where idgiasu = ".$_GET["detail1"];				
 					
 					$result = mysqli_query($con,$query) or die(mysql_error());
 					
@@ -32,6 +31,7 @@
 				?>
 				
 				<div class="lopchuagiao">
+					<img src="images/<?php echo $detail ["giasuanh"]; ?>" width="100" height="120" /> <br />	
 				MS gia sư 	:   <?php echo $detail ["idgiasu"]; ?> <br />	
 						 Tên gia sư	:	<?php echo $detail ["giasuname"]; ?> <br />
 						 Giới tính 	:   <?php echo $detail ["giasusex"]; ?> <br />
@@ -42,7 +42,7 @@
 								Lớp :	<?php echo $detail ["giasulop"]; 	?> <br />
 								Môn :	<?php echo $detail ["giasumon"]; 	?> <br />
 						<hr />
-						<a href="giasuhienco.php">Click để quay lại</a>
+						<a href="index.php">Click để quay lại</a>
 			  	</div>
 			  	
 					

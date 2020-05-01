@@ -46,13 +46,29 @@
 			  <?php 
 			   if (isset($_SESSION['username']) )
 				{
-					if ($_SESSION['quyen'] = "gia sư tìm lớp"  ) 
-					 {
- 					 	echo " <a href='#' >Nhận lớp </a>";
+					if ($_SESSION['quyen']==="gia sư tìm lớp"  ) 
+					 { ?>
+ 					 	
+ 					 <form action="" method="post"><input type="submit" name="xnd" value="Nhận lớp" /> </form><?php
+ 					 	
+ 					 	if(isset($_POST["xnd"]))
+ 					 	{
+ 					 		$cl_td_tinhtrang="UPDATE lopday SET tinhtrang = 1 WHERE idlopday =".$_GET["detail"];
+							
+							$result1 = mysqli_query($con,$cl_td_tinhtrang) or die(mysql_error());
+							
+							$cl_nhap_lopdangday="INSERT INTO lopdangday (idlopday1,idgiasu1) VALUES ('".$_GET["detail"]."','".$_SESSION["id"]."')";
+							
+							$result2 = mysqli_query($con,$cl_nhap_lopdangday) or die(mysql_error());
+							
+							if($result1 && $result2)
+							{echo "Bạn đã nhận lớp dạy thành công<br />Hãy tới trang quản lí lớp";}
+							
+ 					 	}
 					 }
 					else 
 					{
-						echo "Bạn không phải gia sư nên không được nhận lớp <br /> <a href='index.php' >Click để quay lại trang chủ </a> "; 
+						echo "Bạn không phải gia sư nên không được nhận lớp"; 
 					}
 					
 					echo "<br />";

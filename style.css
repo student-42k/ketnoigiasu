@@ -2,8 +2,10 @@
 .clear{clear:both}
 li{list-style:none}
 a{text-decoration: none;
-	color:#fff;
+	color: #fff;
 	font-size:16px }
+	
+
  
 body{
 	background-color:#CED8F6;
@@ -23,7 +25,8 @@ body{
 
 .menu{
 	background:#048E59;
-	margin-top:5px
+	margin-top:5px;
+	color: #fff;
 }
 
 .menu>ul > li {
@@ -104,12 +107,18 @@ body{
 .footer2 {background-color:#05491E;}
 
 .content {
+
 	background-color: #E9DC64;
 	width:900px;	
-	font-size: 20px;
 	font-family: tahoma;
-
+	
 }
+.content h1{
+	text-align:center;
+	border-bottom: 5px solid #048E59;
+	font-size : 25px
+}
+
 .form {
 	width:300px;
 	margin: 0 auto;
@@ -128,17 +137,22 @@ body{
 	background-color: #F1A080;
 	width: 500px;
 	border: 1px solid;
-
 	padding: 10px 10px 10px;
 	margin-left: 10px;
 	margin-top: 10px;
 }
+
 .lopchuagiao a {
 	color: #210B61;
 	font-size : 25px;
 }
 
 .lopchuagiao a:hover {
-	color: #fff;
-	font-size : 25px;
+	color: #fff;;
+
+
+.giasu5sao {
+	width: 900px;
+	height: 600px;
+	overflow: auto;
 }

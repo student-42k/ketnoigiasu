@@ -1,21 +1,22 @@
-<!--Form phụ huynh đăng kí-->
-
-<h1>Đăng kí liền tay, gia sư bay tới ngay !</h1>
-				
-				<form action="" method="post" name="dangkitimlopday"></br/>
-					
-					Họ tên phụ huynh/học viên: <input type="text" name="phuhuynhname" /> <br />
-					
-					Số điện thoại liên lạc : <input type="text" name="phuhuynhphone" /> <br />
-					Địa chỉ dạy và học : <input type="text" name="phuhuynhkhuvuc" placeholder="ghi rõ ràng chi tiết địa chỉ" /> <br />
-					(*) Nhớ ghi thêm quận , ví dụ : quận thanh khê, quận hải châu, quận sơn trà.....
-					(*) Không cần ghi Đà Nẵng <br />
+<h1> Tìm lớp theo yêu cầu </h1>
+					<form method="post" name="timkiem" >
+					Khu vực : <select name='search-khuvuc'>
+										<option></option>
+										<option>Thanh Khê</option>
+										<option>Hải Châu</option>
+										<option>Ngũ Hành Sơn</option>
+										<option>Liên Chiểu</option>
+										<option>Hòa Khánh</option>
+										<option>Cẩm Lệ</option>
+										<option>Sơn Trà</option>
+									</select> <br />
 					Yêu cầu giới tính gia sư :
 					  <input type="radio" name="gender" value="nam" checked="checked"> Nam 
 					   <input type="radio" name="gender" value="nu" checked="checked"> Nữ 
   					<input type="radio" name="gender" value="khong-gioitinh"> Không yêu cầu <br />
 					
-					Tìm lớp : <select name="phuhuynhlop">
+					Tìm lớp : <select name="search-lop">
+										<option></option>
 										<option>lớp 1</option>
 										<option>lớp 2</option>
 										<option>lớp 3</option>
@@ -30,7 +31,8 @@
 										<option>lớp 12</option>
 										<option>luyện thi ĐH</option>
 									</select> <br />
-					Môn học : <select name="phuhuynhmon">
+					Môn học : <select name="search-mon">
+										<option></option>
 										<option>toán</option>
 										<option>lí</option>
 										<option>hóa</option>
@@ -41,6 +43,15 @@
 										<option>tiếng anh</option>
 										<option>toán,tiếng việt (cấp 1) </option>
 									</select> <br />
+					Số buổi học : <select name="search-sobuoi">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										</select> <br />
 					Thời gian (rãnh) có thể day : <br />
 					<table border ="1" cellspacing="0" cellpadding="16" width="550" height="100" bgcolor="#58ACFA">
 						<tr align="center" >
@@ -84,7 +95,12 @@
 							<td> <input type="checkbox" name="chon21" value="toiCN"> </td>
 						</tr>
 					</table>
-
-					<input type="submit" name="submit" value="Xác nhận " />
 					
-				</form>
+					
+					<input type="submit" name="search1" value="Tìm lớp theo các yêu cầu trên"  /> <br /><br />
+					<input type="submit" name="search2" value="Tìm lớp phù hợp với bạn" /><br /><br />
+					
+					<input type="reset" value="reset tìm kiếm" /> 
+					
+					</form>	
+					
