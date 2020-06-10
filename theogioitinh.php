@@ -20,7 +20,7 @@ if(isset($_POST["search1"]))
 {
 	$search_gioitinh=$_POST["gender"];
 
-$query="Select * From lopday Where (phuhuynhsex LIKE '$search_gioitinh') ";
+$query="Select * From lopday Where (phuhuynhsex LIKE '$search_gioitinh' AND tinhtrang = 0 ) ";
 																	
 					$result = mysqli_query($con,$query);	
 					/////////////////////////////////////////////////

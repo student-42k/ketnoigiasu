@@ -27,6 +27,29 @@
 						<li><a href="search.php?tieuchi=mon">Tìm theo môn </a></li>
 						<li><a href="search.php?tieuchi=thoigianday">Tìm theo thời gian dạy và học</a></li>
 					</ul></div> <br /><hr /><br /> 
+					<h1>Tìm lớp tự động</h1>
+				<div class="lopchuagiao">
+					<?php 
+			   if (isset($_SESSION['username']) )
+				{
+					if ($_SESSION['quyen']==="gia sư tìm lớp"  ) 
+					 { 
+ 					 	include 'tudong.php';
+					 }
+					else 
+					{
+						echo "Bạn không phải gia sư nên không được thực hiện chức năng này "; 
+					}
+		
+			  	}
+			  else 
+				{
+					echo "<div class='form'><h3>Bạn cần phải đăng nhập để thực hiện chức năng này </h3><br /> <a href='login.php'>Click để đăng nhập</a>
+							</div>";
+				}
+			  ?>
+					
+				</div> <br /><hr /><br /> 
 				
 			<?php
 				if(isset($_GET["tieuchi"])){

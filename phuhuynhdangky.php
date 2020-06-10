@@ -53,7 +53,7 @@
 						$phuhuynhkhuvuc=$_POST["phuhuynhkhuvuc"];
 						$phuhuynhlop=$_POST["phuhuynhlop"];
 						$phuhuynhmon=$_POST["phuhuynhmon"]; 
-						
+						$sobuoi=$_POST["sobuoi"]; 
 						$phuhuynhtime="";
 						
 						if(isset($_POST["chon1"]))
@@ -153,9 +153,9 @@
 						
 				
 				$query="INSERT INTO lopday (phuhuynhname,phuhuynhphone, 
-				phuhuynhkhuvuc,phuhuynhlop,phuhuynhmon,phuhuynhtime,phuhuynhsex,tinhtrang,idtaikhoan,time_submit) 
+				phuhuynhkhuvuc,phuhuynhlop,phuhuynhmon,phuhuynhtime,phuhuynhsex,tinhtrang,idtaikhoan,time_submit,sobuoi) 
 				VALUES ('$phuhuynhname', '$phuhuynhphone', '$phuhuynhkhuvuc', '$phuhuynhlop',
-				 '$phuhuynhmon', '$phuhuynhtime', '$phuhuynhsex', '0','$idtaikhoan','$trn_date')";
+				 '$phuhuynhmon', '$phuhuynhtime', '$phuhuynhsex', '0','$idtaikhoan','$trn_date','$sobuoi')";
 				   
 				
 				$result = mysqli_query($con,$query);	

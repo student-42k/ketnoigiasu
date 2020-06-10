@@ -21,7 +21,7 @@ if(isset($_POST["search1"]))
 {
 	$search_khuvuc=$_POST["search-khuvuc"];
 
-$query="Select * From lopday Where (phuhuynhkhuvuc LIKE '%$search_khuvuc%') ";
+$query="Select * From lopday Where (phuhuynhkhuvuc LIKE '%$search_khuvuc%' AND tinhtrang = 0) ";
 																	
 					$result = mysqli_query($con,$query);	
 					/////////////////////////////////////////////////
@@ -39,7 +39,7 @@ $query="Select * From lopday Where (phuhuynhkhuvuc LIKE '%$search_khuvuc%') ";
 						</div>
 					<?php
 				
-					  } 
+					  } }
 					  
-}
+
 ?>

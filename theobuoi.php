@@ -169,14 +169,14 @@ if(isset($_POST["search1"]))
 					if($search_sobuoi =="1")
 					{
 						$query="Select*from lopday Where 
-												(phuhuynhtime LIKE '%$buoi[0]%')";
+												(phuhuynhtime LIKE '%$buoi[0]%' AND tinhtrang = 0 )";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else 
 					if($search_sobuoi =="2")
 					{
 						$query="Select*from lopday Where 
 												(phuhuynhtime LIKE '%$buoi[0]%') 
-												AND (phuhuynhtime LIKE '%$buoi[1]%')";
+												AND (phuhuynhtime LIKE '%$buoi[1]%') AND tinhtrang = 0 ";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else 
 					if($search_sobuoi =="3")
@@ -184,7 +184,7 @@ if(isset($_POST["search1"]))
 						$query="Select*from lopday Where 
 												(phuhuynhtime LIKE '%$buoi[0]%') 
 												AND (phuhuynhtime LIKE '%$buoi[1]%') 
-												AND (phuhuynhtime LIKE '%$buoi[2]%')";
+												AND (phuhuynhtime LIKE '%$buoi[2]%') AND tinhtrang = 0 ";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else 
 					if($search_sobuoi =="4")
@@ -193,7 +193,7 @@ if(isset($_POST["search1"]))
 												 (phuhuynhtime LIKE '%$buoi[0]%') 
 												AND (phuhuynhtime LIKE '%$buoi[1]%') 
 												AND (phuhuynhtime LIKE '%$buoi[2]%') 
-												AND (phuhuynhtime LIKE '%$buoi[3]%'))";
+												AND (phuhuynhtime LIKE '%$buoi[3]%') AND tinhtrang = 0 )";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else 
 					if($search_sobuoi =="5")
@@ -203,7 +203,7 @@ if(isset($_POST["search1"]))
 												AND (phuhuynhtime LIKE '%$buoi[1]%') 
 												AND (phuhuynhtime LIKE '%$buoi[2]%') 
 												AND (phuhuynhtime LIKE '%$buoi[3]%') 
-												AND (phuhuynhtime LIKE '%$buoi[4]%')";
+												AND (phuhuynhtime LIKE '%$buoi[4]%') AND tinhtrang = 0 ";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else 
 					if($search_sobuoi =="6")
@@ -214,7 +214,7 @@ if(isset($_POST["search1"]))
 												AND (phuhuynhtime LIKE '%$buoi[2]%') 
 												AND (phuhuynhtime LIKE '%$buoi[3]%') 
 												AND (phuhuynhtime LIKE '%$buoi[4]%') 
-												AND (phuhuynhtime LIKE '%$buoi[5]%') ";
+												AND (phuhuynhtime LIKE '%$buoi[5]%') AND tinhtrang = 0 ";
 							$result = mysqli_query($con,$query) OR die(mysql_error());
 					} else {echo "không có lớp theo yêu cầu";}
 	
@@ -232,5 +232,5 @@ if(isset($_POST["search1"]))
 						<a href="detail.php?detail=<?php echo $rows ["idlopday"];?>"> Bấm xem chi tiết</a>
 						</div>
 					<?php
-					 } $rows = mysqli_fetch_array($result); if ($rows["idlopday"] == null) {echo "không có lớp theo yêu cầu";}	}
+					 } $rows = mysqli_fetch_array($result); if(empty($rows)){ echo "không có lớp";}	}
 ?>	

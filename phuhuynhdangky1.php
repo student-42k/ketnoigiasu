@@ -41,6 +41,15 @@
 										<option>tiếng anh</option>
 										<option>toán,tiếng việt (cấp 1) </option>
 									</select> <br />
+					Số buổi học : <select name="sobuoi">
+										<option></option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+										<option>6</option>
+										</select> <br />
 					Thời gian (rãnh) có thể day : <br />
 					<table border ="1" cellspacing="0" cellpadding="16" width="550" height="100" bgcolor="#58ACFA">
 						<tr align="center" >

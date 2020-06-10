@@ -27,7 +27,7 @@ if(isset($_POST["search1"]))
 {
 	$search_mon=$_POST["search-mon"];
 
-					$query="Select * From lopday Where (phuhuynhmon LIKE '$search_mon')";
+					$query="Select * From lopday Where (phuhuynhmon LIKE '$search_mon' AND tinhtrang = 0 )";
 																	
 					$result = mysqli_query($con,$query);	
 					/////////////////////////////////////////////////
